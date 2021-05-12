@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use  Illuminate\Support\Facades\Session;
+use  Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -24,8 +25,8 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
 
         ]);
-       
-         $user = User::where(['username'=>$request->username])->first();
+       Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+    
          $request->session()->put('user',$user);
 
 
@@ -34,23 +35,24 @@ class UserController extends Controller
 
     public function login(Request $request){
         $request->validate([
-            'username' => 'required',
+            'email' => 'required',
             'password' => 'required'
 
         ]);
-        $user = User::where([ 'username' => $request->username])->first();
 
-        //if user doesnt exist in database or password isnt correct
-        if(!$user || !Hash::check($request->password, $user->password)){
-            return redirect(route('login'))->with('status','Invalid login details');
-            die();
-        }
-        $request->session()->put('user',$user);
-        return redirect(route('dashboard'));
+        if(Auth::attempt($request->only('email','password'),$request->remember)){
+                $user = User::where(['email'=>$request->email])->first();
+                $request->session()->put('user',$user);
+                return redirect(route('dashboard'));
+            }else{
+                return redirect(route('login'))->with('error','Invalid login details');
+            }
+        
     }
 
-    public function logout(){
-        Session::forget('user');
+
+    public function logout(Request $request){
+      $request->session()->forget('user');
         return redirect(route('posts'));
     }
 }

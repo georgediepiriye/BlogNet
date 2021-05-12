@@ -25,6 +25,11 @@
         padding-top: 100px;
     }
 
+    .post-container{
+      height: 600px;
+        padding-top: 50px;
+    }
+
     .btn-primary, .btn-primary:active, .btn-primary:visited {
     background-color: #222 !important;
     border-color: #222 !important;
@@ -36,6 +41,9 @@
 .error-message{
     color: red;
     
+}
+.post-box{
+  height:100px !important;
 }
 
 .logout-button{
@@ -50,6 +58,10 @@
     border-color: #222;
     background-color: #222;
     color: #fff;
+}
+
+.post-button{
+  margin-top: 10px;
 }
 
 

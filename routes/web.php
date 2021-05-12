@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use  Illuminate\Support\Facades\Session;
 /*
@@ -12,17 +13,29 @@ use  Illuminate\Support\Facades\Session;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/Route::view('/', 'index')->name('posts');
+*/
 
 
 
  Route::view('/register','register')->name('register');
- Route::post('/register',[UserController::class,'register'])->name('register');
+ Route::post('/register',[UserController::class,'register'])
+ ->name('register')
+ ->middleware('middleware');
 
- Route::view('/dashboard','dashboard')->name('dashboard');
+ Route::view('/dashboard','dashboard')
+ ->name('dashboard')->middleware('middleware');
 
  
  Route::view('/login','login')->name('login');
- Route::post('/login',[UserController::class,'login'])->name('login');
+ Route::post('/login',[UserController::class,'login'])
+ ->name('login')
+ ->middleware('middleware');
 
- Route::post('/logout',[UserController::class,'logout'])->name('logout');
+ Route::post('/logout',[UserController::class,'logout'])
+ ->name('logout')->middleware('middleware');
+
+ Route::view('/', 'home');
+ Route::get('/posts',[PostController::class,'index'])
+ ->name('posts');
+ Route::post('/posts',[PostController::class,'store'])
+ ->name('posts');
