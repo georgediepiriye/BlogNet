@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Post;
+use Illuminate\Support\Facades\Session;
 
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class PostController extends Controller
 {
     //
     public function index(){
-        return view('posts');
+        $posts = Post::get();
+        return view('posts',['posts'=>$posts]);
     }
 
     public function store(Request $request){
@@ -18,6 +20,14 @@ class PostController extends Controller
             'category'=>'required |in:sports,fashion,tech,politics',
 
         ]);
+
+
+        $request->user()->posts()->create([
+            'body'=>$request->body,
+            'category'=>$request->category
+
+        ]);
+        return back();
 
 
 

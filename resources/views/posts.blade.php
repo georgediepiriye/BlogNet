@@ -34,6 +34,23 @@
 
                 <button type="submit" name="submit" class="btn btn-primary post-button" >Post</button>
               </form>
+
+              @if ($posts->count())
+                 @foreach ($posts as $post )
+                 <div class="posts">
+                     <a href="" class="post-name">{{ $post->user->username }}</a> <span>{{ $post->created_at->diffForHumans() }}</span>
+                     <p>{{ $post->body }}</a>
+                     <p>{{ $post->category }}</p>
+
+                 </div>
+                
+                     
+                 @endforeach
+                  
+              @else
+                  <h2>There are no Posts</h2>
+                  
+              @endif
               
               
              
