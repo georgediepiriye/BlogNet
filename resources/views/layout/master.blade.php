@@ -26,7 +26,7 @@
     }
 
     .post-container{
-      height: 600px;
+      height: auto;
         padding-top: 50px;
     }
 
@@ -63,6 +63,26 @@
 .post-button{
   margin-top: 10px;
 }
+.post-title{
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+.post-name{
+  margin-top: 20px;
+  padding: 0px;
+}
+.float-child {
+    
+    float: left;
+    padding-right: 5px;
+    
+   
+} 
+
+
+
 
 
   </style>
