@@ -18,6 +18,8 @@
     footer {
       background-color: #f2f2f2;
       padding: 25px;
+      margin-top: 40px;
+      height: 200px;
     }
 
     .custom-login{
@@ -27,7 +29,7 @@
 
     .post-container{
       height: auto;
-        padding-top: 50px;
+
     }
 
     .btn-primary, .btn-primary:active, .btn-primary:visited {
@@ -76,13 +78,52 @@
 .float-child {
     
     float: left;
-    padding-right: 5px;
-    
-   
+    padding-right: 5px;  
 } 
 
+.create-post-button{
+  color: #fff !important;
+}
+.create-post-button:hover{
+  color: gray !important;
+}
+.image-button{
+  background-color: gray !important;
+    border-color:gray !important;
+    color: black;
+    margin-top: 10px;
+}
+
+.image-button:hover{
+  
+    color: white;
+    
+}
+.post-image{
+  height: 170px;
+  width: 250px;
+}
+
+.right-post-item{
+  width: 40%;
+  float: left;
+  
+}
+
+.left-post-item{
+  width: 60%;
+  float: left;
+  margin-top: 20px;
+}
+
+.post{
+  height: 200px !important;
+}
 
 
+.post-body{
+  color: gray;
+}
 
 
   </style>

@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Models;
-
-use App\Http\Middleware\UserAuth;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Like;
@@ -14,9 +12,14 @@ class Post extends Model
         'user_id',
         'title',
         'body',
-        'category'
+        'category',
+        'image'
         
     ];
+
+    public function likedBy(User $user){
+        return $this->likes->contains('user_id',$user->id);
+    }
 
     public function user(){
        return $this->belongsTo(User::class);

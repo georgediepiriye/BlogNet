@@ -39,3 +39,11 @@ use  Illuminate\Support\Facades\Session;
  ->name('posts');
  Route::post('/posts',[PostController::class,'store'])
  ->name('posts');
+
+ Route::post('/posts/{post}/likes',[PostController::class,'like'])
+ ->name('posts.likes');
+
+ Route::delete('/posts/{post}/likes',[PostController::class,'unlike'])
+ ->name('posts.likes');
+
+ Route::view('/posts/create','createpost')->name('createpost');
