@@ -123,6 +123,7 @@
 
 .post-body{
   color: gray;
+  font-style:italic; 
 }
 
 

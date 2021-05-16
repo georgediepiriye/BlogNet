@@ -11,7 +11,7 @@ class PostController extends Controller
     //
     public function index(){
     
-        return view('posts')->with('posts',Post::orderBy('updated_at','DESC')->paginate(10));
+        return view('posts')->with('posts',Post::orderBy('updated_at','DESC')->with('user','likes')->paginate(10));
     }
 
     public function store(Request $request){
@@ -58,6 +58,12 @@ class PostController extends Controller
     public function unlike(Post $post,Request $request){
         $request->user()->likes()->where('post_id',$post->id)->delete();
         return back();
+
+    }
+
+    public function delete(Post $post){
+     $post->delete();
+     return back();
 
     }
 }
