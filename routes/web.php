@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\UserPostController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use  Illuminate\Support\Facades\Session;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +50,7 @@ use  Illuminate\Support\Facades\Session;
  ->name('posts.likes');
 
  Route::view('/posts/create','createpost')->name('createpost');
+
+ Route::get('/users/{user:username}/posts',[UserPostController::class,'index'])
+ ->name('user.posts');
+
