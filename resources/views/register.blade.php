@@ -9,7 +9,7 @@
                 @csrf
                 <div class="form-group">
                     <label>Username</label>
-                    <input type="text" name="username" class="form-control"  placeholder="Enter Username" value="{{ old('username') }}">
+                    <input type="text" name="username" style="text-transform:lowercase"  class="form-control"  placeholder="Enter Username" value="{{ old('username') }}">
                     @error('username')
                         <div class="error-message">
                            <h5> {{ $message }}</h5>
@@ -19,7 +19,7 @@
                   </div>
                 <div class="form-group">
                   <label>Email address</label>
-                  <input type="email" name="email" class="form-control"  placeholder="Enter email" value="{{ old('email') }}">
+                  <input type="email" name="email" class="form-control"  style="text-transform:lowercase"  placeholder="Enter email" value="{{ old('email') }}">
                   @error('email')
                   <div class="error-message">
                      <h5> {{ $message }}</h5>

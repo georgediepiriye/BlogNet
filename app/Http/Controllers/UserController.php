@@ -42,7 +42,7 @@ class UserController extends Controller
         if(Auth::attempt($request->only('email','password'),$request->remember)){
                 $user = User::where(['email'=>$request->email])->first();
                 $request->session()->put('user',$user);
-                return redirect(route('dashboard'));
+                return redirect(route('posts'));
             }else{
                 return redirect(route('login'))->with('error','Invalid login details');
             }

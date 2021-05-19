@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
@@ -12,6 +13,7 @@
     .navbar {
       margin-bottom: 20px;
       border-radius: 0;
+      z-index: 1 !important;
     }
 
     .sticky {
@@ -25,7 +27,7 @@
       background-color: #f2f2f2;
       padding: 25px;
       margin-top: 40px;
-      height: 200px;
+      height: auto;
     }
 
     .custom-login{
@@ -129,7 +131,7 @@
 }
 
 .details-image{
-  height: 600px;
+  height: 900px;
   width: 100%;
 }
 
@@ -148,11 +150,16 @@
 }
 
 .card{
-  margin: 20px !important
+  margin: 20px !important;
+ 
 }
 
 .user-posts-box{
   margin-top: 50px
+}
+
+a{
+  text-decoration: none !important;
 }
 
 
