@@ -8,7 +8,16 @@
                 <h1 class="details-title user-posts-box">{{Str::ucfirst($post->title) }}</h1>
                 By <a href="{{ route('user.posts',$post->user->username) }}">{{ $post->user->username }}</a>, posted <span>{{ $post->created_at->diffForHumans() }}</span>
         
-                <p>{{$post->category}}</p>
+                <h5 class="@if ($post->category==='tech')
+                    {{ $class='tech-background' }}
+                 @elseif ($post->category==='politics') 
+                   {{  $class='politics-background' }}  
+                 @elseif ($post->category==='sports') 
+                    {{ $class='sports-background' }} 
+                    @elseif ($post->category==='fashion') 
+                   {{ $class='fashion-background'  }}       
+                     
+                 @endif">{{$post->category}}</h5>
                 <img class="details-image" src="{{asset('images/' .  $post->image)  }}" alt=""><br> <br>
                 <h4 class="line-spacing">{{ $post->body }}</h4><br><br>
     
@@ -39,7 +48,7 @@
             
                 <span class="float-child">{{ $post->likes->count() }} {{ Str::plural('like',$post->likes->count() ) }}</span>
                 @if (Session::has('user'))
-                @if (Session::has('user')['id']===$post->user_id)
+                @if (Auth::user()->id===$post->user_id)
                         <div class="float-child" style="float: right">
                         
                             <form action="{{ route('post.delete',$post) }}" method="post">

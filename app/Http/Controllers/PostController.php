@@ -14,6 +14,8 @@ class PostController extends Controller
         return view('posts')->with('posts',Post::orderBy('updated_at','DESC')->with('user','likes')->paginate(10));
     }
 
+    
+
     public function store(Request $request){
         $request->validate([
             'title'=>'required|max:60',
@@ -72,4 +74,6 @@ class PostController extends Controller
             'post'=> $post
         ]);
     }
+
+    
 }

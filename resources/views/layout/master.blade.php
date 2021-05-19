@@ -161,6 +161,32 @@
 a{
   text-decoration: none !important;
 }
+.tech-background{
+  background-color: red;
+  color: white;
+  width: max-content;
+  padding: 5px;
+}
+
+.politics-background{
+  background-color:blue;
+  color: white;
+  width: max-content;
+  padding: 5px;
+}
+
+.fashion-background{
+  background-color:green;
+  color: white;
+  width: max-content;
+  padding: 5px;
+}
+.sports-background{
+  background-color:purple;
+  color: white;
+  width: max-content;
+  padding: 5px;
+}
 
 
   </style>

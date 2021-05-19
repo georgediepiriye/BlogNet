@@ -9,7 +9,23 @@
 
                  By <a href="{{ route('user.posts',$post->user->username) }}">{{ $post->user->username }}</a>, posted <span>{{ $post->created_at->diffForHumans() }}</span>
                  <p class="post-body">{{ Str::words($post->body, $words=20, '...')  }}</p>
-                 <p>{{$post->category}}</p>
+                
+                  
+                    
+                   
+                   
+                  
+
+                 <h5 class="@if ($post->category==='tech')
+                    {{ $class='tech-background' }}
+                 @elseif ($post->category==='politics') 
+                   {{  $class='politics-background' }}  
+                 @elseif ($post->category==='sports') 
+                    {{ $class='sports-background' }} 
+                    @elseif ($post->category==='fashion') 
+                   {{ $class='fashion-background'  }}       
+                     
+                 @endif">{{$post->category}}</h5>
                  @if (Session::has('user'))
                      
                                      
@@ -36,7 +52,7 @@
                  @endif  
                  <span class="float-child">{{ $post->likes->count() }} {{ Str::plural('like',$post->likes->count() ) }}</span>
                  @if (Session::has('user'))
-                    @if (Session::has('user')['id']===$post->user_id)
+                    @if (Auth::user()->id===$post->user_id)
                             <div class="float-child" style="float: right">
                             
                                 <form action="{{ route('post.delete',$post) }}" method="post">
