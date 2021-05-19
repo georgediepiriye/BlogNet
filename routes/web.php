@@ -54,3 +54,7 @@ use Illuminate\Support\Facades\Route;
  Route::get('/users/{user:username}/posts',[UserPostController::class,'index'])
  ->name('user.posts');
 
+ 
+ Route::get('/posts/{post}/details',[PostController::class,'show'])
+ ->name('post.details');
+

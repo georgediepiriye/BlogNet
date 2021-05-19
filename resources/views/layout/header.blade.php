@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse sticky">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -26,6 +26,7 @@
         <ul class="nav navbar-nav navbar-right">
             @if (Session::has('user'))
                   <li><a href="#"><span class="glyphicon "></span>{{ Session::get('user')['username'] }}</a></li>
+                  <li><a href="{{ route('createpost') }}"><span class="glyphicon ">Create-Post</a></li>
                   <li>
                      <form action="{{ route('logout') }}" method="POST" class="inline">
                          @csrf

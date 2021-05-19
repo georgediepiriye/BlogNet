@@ -10,9 +10,15 @@
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
-      margin-bottom: 0;
+      margin-bottom: 20px;
       border-radius: 0;
     }
+
+    .sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
     
     /* Add a gray background color and some padding to the footer */
     footer {
@@ -66,8 +72,8 @@
   margin-top: 10px;
 }
 .post-title{
-  margin: 0px;
-  padding: 0px;
+  margin-top: 0px;
+  color: #222;
   
 }
 
@@ -100,8 +106,8 @@
     
 }
 .post-image{
-  height: 170px;
-  width: 250px;
+  height: 120px;
+  width: 200px;
 }
 
 .right-post-item{
@@ -113,17 +119,40 @@
 .left-post-item{
   width: 60%;
   float: left;
-  margin-top: 20px;
 }
 
-.post{
-  height: 200px !important;
-}
 
 
 .post-body{
   color: gray;
   font-style:italic; 
+}
+
+.details-image{
+  height: 600px;
+  width: 100%;
+}
+
+.details-box{
+  margin-left: 100px;
+    margin-right: 100px;
+}
+
+.line-spacing{
+  line-height: 26pt;
+
+}
+
+.details-title{
+  text-align: center;
+}
+
+.card{
+  margin: 20px !important
+}
+
+.user-posts-box{
+  margin-top: 50px
 }
 
 
