@@ -58,3 +58,22 @@ use Illuminate\Support\Facades\Route;
  Route::get('/posts/{post}/details',[PostController::class,'show'])
  ->name('post.details');
 
+ 
+ Route::get('/posts/category/sports',[PostController::class,'showSports'])
+ ->name('posts.sports');
+ 
+ Route::get('/posts/category/fashion',[PostController::class,'showFashion'])
+ ->name('posts.fashion');
+ 
+ Route::get('/posts/category/tech',[PostController::class,'showTech'])
+ ->name('posts.tech');
+ 
+ Route::get('/posts/category/politics',[PostController::class,'showPolitics'])
+ ->name('posts.politics');
+ 
+ 
+
+
+ 
+ 
+

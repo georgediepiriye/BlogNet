@@ -15,10 +15,10 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category<span class="caret"></span></a>
             <ul class="dropdown-menu">
-                <li><a href="#">Sports</a></li>
-              <li><a href="#">Fashion</a></li>
-              <li><a href="#">Tech</a></li>
-              <li><a href="#">Politics</a></li>
+                <li><a href="{{ route('posts.sports') }}">Sports</a></li>
+              <li><a href="{{ route('posts.fashion') }}">Fashion</a></li>
+              <li><a href="{{ route('posts.tech') }}">Tech</a></li>
+              <li><a href="{{ route('posts.politics') }}">Politics</a></li>
 
             </ul>
           </li>

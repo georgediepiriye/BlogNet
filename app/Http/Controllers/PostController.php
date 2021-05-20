@@ -5,6 +5,7 @@ use App\Models\Post;
 use Illuminate\Support\Facades\Session;
 
 use Illuminate\Http\Request;
+use PDO;
 
 class PostController extends Controller
 {
@@ -75,5 +76,33 @@ class PostController extends Controller
         ]);
     }
 
+
+     public function showSports(){
+         $posts = Post::where('category','sports')->paginate(10);
+         return view('post.sports',[
+             'posts'=>$posts
+         ]);
+     }
+
+     
+     public function showFashion(){
+        $posts = Post::where('category','fashion')->paginate(10);
+        return view('post.fashion',[
+            'posts'=>$posts
+        ]);
+    }
     
+    public function showTech(){
+        $posts = Post::where('category','tech')->paginate(10);
+        return view('post.tech',[
+            'posts'=>$posts
+        ]);
+    }
+
+    public function showPolitics(){
+        $posts = Post::where('category','politics')->paginate(10);
+        return view('post.politics',[
+            'posts'=>$posts
+        ]);
+    }
 }
