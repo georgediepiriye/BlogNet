@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
             <div class="card container">
-                <h1 class="details-title user-posts-box">{{Str::ucfirst($post->title) }}</h1>
+                <h1 class="details-title user-posts-box"><b>{{Str::ucfirst($post->title) }}</b></h1>
                 By <a href="{{ route('user.posts',$post->user->username) }}">{{ $post->user->username }}</a>, posted <span>{{ $post->created_at->diffForHumans() }}</span>
         
                 <h5 class="@if ($post->category==='tech')

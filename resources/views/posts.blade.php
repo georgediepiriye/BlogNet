@@ -2,7 +2,7 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
-        <h1 class="display-4">“There is no greater agony than bearing an untold story inside you.”</h1>
+        <h1 class="display-4 jt np">“There is no greater agony than bearing an untold story inside you.”</h1>
         <p>~ Maya Angelou</p>
         @if (!Session::has('user'))
         <p class="lead">

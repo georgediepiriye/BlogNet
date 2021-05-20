@@ -6,13 +6,14 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#">BlogNet</a>
+        <a href="{{ route('posts') }}"><img class="logo" src="/images/blognet_logo.jpg" alt="">
+        </a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{{ route('posts') }}">Posts</a></li>
+          <li class="np"><a href="{{ route('posts') }}">Posts</a></li>
         
-          <li class="dropdown">
+          <li class="dropdown np">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Category<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="{{ route('posts.sports') }}">Sports</a></li>
@@ -25,9 +26,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             @if (Session::has('user'))
-                  <li><a href="#"><span class="glyphicon "></span>{{ Session::get('user')['username'] }}</a></li>
-                  <li><a href="{{ route('createpost') }}"><span class="glyphicon ">Create-Post</a></li>
-                  <li>
+                  <li class="np"><a href="#"><span class="glyphicon "></span>{{ Str::ucfirst(Session::get('user')['username'])  }}</a></li>
+                  <li class="np"><a href="{{ route('createpost') }}"><span class="glyphicon ">Create-Post</a></li>
+                  <li class="np">
                      <form action="{{ route('logout') }}" method="POST" class="inline">
                          @csrf
                   
@@ -36,8 +37,8 @@
                       </form>
                   </li>
             @else
-            <li><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-            <li><a href="{{ route('register') }}"><span class="glyphicon glyphicon-register"></span> Register</a></li>
+            <li class="np"><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            <li class="np"><a href="{{ route('register') }}"><span class="glyphicon glyphicon-register"></span> Register</a></li>
             @endif
             
           

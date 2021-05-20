@@ -4,7 +4,7 @@
         <div class="card">
             <div class="col-sm-5">
                 <a href="{{ route('post.details',$post) }}"> 
-                     <h3  class="post-title">{{Str::ucfirst($post->title) }}</h3>
+                     <h3  class="post-title"><b>{{Str::ucfirst($post->title) }}</b></h3>
                  </a>
 
                  By <a href="{{ route('user.posts',$post->user->username) }}">{{ $post->user->username }}</a>, posted <span>{{ $post->created_at->diffForHumans() }}</span>
@@ -50,10 +50,10 @@
                  @endif
                  
                  @endif  
-                 <span class="float-child">{{ $post->likes->count() }} {{ Str::plural('like',$post->likes->count() ) }}</span>
+                 <span class="float-child likes-count">{{ $post->likes->count() }} {{ Str::plural('like',$post->likes->count() ) }}</span>
                  @if (Session::has('user'))
                     @if (Auth::user()->id===$post->user_id)
-                            <div class="float-child" style="float: right">
+                            <div class="float-child">
                             
                                 <form action="{{ route('post.delete',$post) }}" method="post">
                                     @method('DELETE')

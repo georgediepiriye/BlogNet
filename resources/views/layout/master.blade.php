@@ -11,9 +11,19 @@
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
       border-radius: 0;
       z-index: 1 !important;
+      
+    }
+
+    .np{
+      padding-top: 13px
+    }
+
+    .logo{
+      height:70px;
+      width: 160px;
     }
 
     .sticky {
@@ -27,12 +37,12 @@
       background-color: #f2f2f2;
       padding: 25px;
       margin-top: 40px;
-      height: auto;
+      height: 200px;
     }
 
     .custom-login{
         height: 600px;
-        padding-top: 100px;
+        padding-top: 150px;
     }
 
     .post-container{
@@ -155,7 +165,7 @@
 }
 
 .user-posts-box{
-  margin-top: 50px
+  margin-top: 70px
 }
 
 a{
@@ -188,7 +198,19 @@ a{
   padding: 5px;
 }
 
+.footer-box{
+  margin-top: 50px
+}
+.create-posts-box{
+  margin-top: 70px
+}
+.likes-count{
+  margin-top: 3px
+}
 
+.jt{
+  margin-top: 40px !important
+}
   </style>
 </head>
 <body>

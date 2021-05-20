@@ -9,7 +9,7 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <input type="email" name="email"  style="text-transform:lowercase" class="form-control"  placeholder="Enter Email" value="{{ old('email') }}">
+                    <input type="email" name="email"   class="form-control"  placeholder="Enter Email" value="{{ old('email') }}">
                     @error('email')
                         <div class="error-message">
                            <h5> {{ $message }}</h5>

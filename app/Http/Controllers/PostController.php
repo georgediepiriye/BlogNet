@@ -12,7 +12,7 @@ class PostController extends Controller
     //
     public function index(){
     
-        return view('posts')->with('posts',Post::orderBy('updated_at','DESC')->with('user','likes')->paginate(10));
+        return view('posts')->with('posts',Post::orderBy('updated_at','DESC')->with('user','likes')->paginate(20));
     }
 
     
@@ -105,4 +105,5 @@ class PostController extends Controller
             'posts'=>$posts
         ]);
     }
+
 }

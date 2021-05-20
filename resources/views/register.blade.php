@@ -8,8 +8,8 @@
             <form action="{{ route('register') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" name="username" style="text-transform:lowercase"  class="form-control"  placeholder="Enter Username" value="{{ old('username') }}">
+                    <label>Username:</label>
+                    <input type="text" name="username" style="text-transform:lowercase"  class="form-control" value="{{ old('username') }}">
                     @error('username')
                         <div class="error-message">
                            <h5> {{ $message }}</h5>
@@ -18,8 +18,8 @@
                     @enderror
                   </div>
                 <div class="form-group">
-                  <label>Email address</label>
-                  <input type="email" name="email" class="form-control"  style="text-transform:lowercase"  placeholder="Enter email" value="{{ old('email') }}">
+                  <label>Email address:</label>
+                  <input type="email" name="email" class="form-control"  style="text-transform:lowercase"   value="{{ old('email') }}">
                   @error('email')
                   <div class="error-message">
                      <h5> {{ $message }}</h5>
@@ -28,8 +28,8 @@
               @enderror
                 </div>
                 <div class="form-group">
-                  <label>Password</label>
-                  <input type="password" name="password" class="form-control"  placeholder="Password">
+                  <label>Password:</label>
+                  <input type="password" name="password" class="form-control" >
                   @error('password')
                   <div class="error-message">
                      <h5> {{ $message }}</h5>
@@ -38,8 +38,8 @@
               @enderror
                 </div>
                 <div class="form-group">
-                    <label> Retype Password</label>
-                    <input type="password" name="password_confirmation" class="form-control" placeholder="Retype Password">
+                    <label> Retype Password:</label>
+                    <input type="password" name="password_confirmation" class="form-control">
                     @error('password_confirmation')
                     <div class="error-message">
                        <h5> {{ $message }}</h5>
