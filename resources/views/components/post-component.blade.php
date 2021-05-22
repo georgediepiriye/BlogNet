@@ -65,11 +65,11 @@
                  @endif
        
  
-     </div>
-     <div class="col">
+             </div>
+         <div class="col">
          <img class="post-image" src="{{asset('images/' .  $post->image)  }}" alt="">
  
-     </div>
+          </div>
  
  
 

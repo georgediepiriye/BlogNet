@@ -18,44 +18,32 @@
     
     <div class="row">
         <h5 class="details-title">POPULAR POSTS</h5>
-        <div class="col-sm-4 float-child">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h4>This is the post title</h4>
-                    <h5>By diepiriye, 5 mins ago</h5>
-                    <h5>Tech</h5>
+        @foreach ($populars as $popular)
+              <div class="col float-child" style="width: 33%">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5><b>{{Str::ucfirst($popular->title)}}</b></h5>
+                        <h5>By <a href="{{ route('user.posts',$popular->user->username) }}">{{Str::ucfirst($popular->user->username ) }}</a>, {{ $popular->created_at->diffForHumans() }}</h5>
+                        <div class="pc" >
+                            <h5 class="@if ($popular->category==='tech')
+                                {{$class='tech-background'}}
+                             @elseif ($popular->category==='politics') 
+                               {{$class='politics-background'}}  
+                             @elseif ($popular->category==='sports') 
+                                {{ $class='sports-background'}} 
+                                @elseif ($popular->category==='fashion') 
+                               {{$class='fashion-background'}}       
+                                 
+                             @endif">{{ $popular->category }}</h5>
 
+                        </div>
+                        
+
+                    </div>
                 </div>
-                
-
-            </div>
-            
-
-
         </div>
-        <div class="col-sm-4 float-child">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h4>This is the post title</h4>
-                    <h5>By diepiriye, 5 mins ago</h5>
-                    <h5>Tech</h5>
-
-                </div>
-
-            </div>
-
-        </div>
-        <div class="col-sm-4 float-child">
-            <div class="card">
-                <div class="card-body text-center">
-                    <h4>This is the post title</h4>
-                    <h5>By diepiriye, 5 mins ago</h5>
-                    <h5>Tech</h5>
-
-                </div>
-            </div>
-
-        </div>
+        @endforeach
+       
     </div>
     <hr>
     <div class="post-container">

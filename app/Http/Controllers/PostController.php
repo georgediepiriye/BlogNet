@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Like;
 use App\Models\Post;
 use Illuminate\Support\Facades\Session;
 
@@ -11,8 +13,16 @@ class PostController extends Controller
 {
     //
     public function index(){
+        $posts = Post::orderBy('updated_at','DESC')->with('user','likes')->paginate(20);
+        $populars = Post::withCount('likes')
+        ->orderBy('likes_count', 'desc')->with('user')
+        ->paginate(3);
+        
     
-        return view('posts')->with('posts',Post::orderBy('updated_at','DESC')->with('user','likes')->paginate(20));
+        return view('posts',[
+            'posts'=>$posts,
+            'populars'=>$populars
+            ]);
     }
 
     
@@ -54,9 +64,15 @@ class PostController extends Controller
             'user_id'=>$request->user()->id
 
         ]);
+
+         
         return back();
 
     }
+
+    
+
+
 
     public function unlike(Post $post,Request $request){
         $request->user()->likes()->where('post_id',$post->id)->delete();
@@ -78,7 +94,7 @@ class PostController extends Controller
 
 
      public function showSports(){
-         $posts = Post::where('category','sports')->paginate(10);
+         $posts = Post::where('category','sports')->paginate(20);
          return view('post.sports',[
              'posts'=>$posts
          ]);
@@ -86,24 +102,28 @@ class PostController extends Controller
 
      
      public function showFashion(){
-        $posts = Post::where('category','fashion')->paginate(10);
+        $posts = Post::where('category','fashion')->paginate(20);
         return view('post.fashion',[
             'posts'=>$posts
         ]);
     }
     
     public function showTech(){
-        $posts = Post::where('category','tech')->paginate(10);
+        $posts = Post::where('category','tech')->paginate(20);
         return view('post.tech',[
             'posts'=>$posts
         ]);
     }
 
     public function showPolitics(){
-        $posts = Post::where('category','politics')->paginate(10);
+        $posts = Post::where('category','politics')->paginate(20);
         return view('post.politics',[
             'posts'=>$posts
         ]);
     }
+
+    
+
+   
 
 }

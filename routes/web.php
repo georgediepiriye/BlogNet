@@ -23,8 +23,7 @@ use Illuminate\Support\Facades\Route;
  ->name('register')
  ->middleware('middleware');
 
- Route::view('/dashboard','dashboard')
- ->name('dashboard')->middleware('middleware');
+ 
 
  
  Route::view('/login','login')->name('login');
@@ -38,6 +37,8 @@ use Illuminate\Support\Facades\Route;
  Route::view('/', 'home');
  Route::get('/posts',[PostController::class,'index'])
  ->name('posts');
+
+
  Route::post('/posts',[PostController::class,'store'])
  ->name('posts');
  Route::delete('/posts/{post}',[PostController::class,'delete'])

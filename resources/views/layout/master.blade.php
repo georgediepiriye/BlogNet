@@ -211,6 +211,10 @@ a{
 .jt{
   margin-top: 40px !important
 }
+.pc{
+  display: inline-block;
+  
+}
   </style>
 </head>
 <body>

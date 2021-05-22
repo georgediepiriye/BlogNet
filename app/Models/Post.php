@@ -13,7 +13,8 @@ class Post extends Model
         'title',
         'body',
         'category',
-        'image'
+        'image',
+        
         
     ];
 
@@ -28,4 +29,7 @@ class Post extends Model
     public function likes(){
         return $this->hasMany(Like::class);
      }
+
+     
+
 }
