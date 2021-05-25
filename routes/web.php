@@ -35,11 +35,11 @@ use Illuminate\Support\Facades\Route;
  ->name('logout')->middleware('auth');
 
 
- Route::get('/posts',[PostController::class,'index'])
+ Route::get('/',[PostController::class,'index'])
  ->name('posts');
 
 
- Route::post('/posts',[PostController::class,'store'])
+ Route::post('/',[PostController::class,'store'])
  ->name('posts');
  Route::delete('/posts/{post}',[PostController::class,'delete'])
  ->name('post.delete');
