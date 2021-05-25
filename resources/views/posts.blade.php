@@ -31,7 +31,9 @@
               <div class="col float-child" style="width: 33%">
                 <div class="card">
                     <div class="card-body text-center">
-                        <h5><b>{{Str::ucfirst($popular->title)}}</b></h5>
+                        <a href="{{ route('post.details',$popular) }}"> 
+                            <h5><b>{{Str::ucfirst($popular->title)}}</b></h5>
+                        </a>
                         <h5>By <a href="{{ route('user.posts',$popular->user->username) }}">{{Str::ucfirst($popular->user->username ) }}</a>, {{ $popular->created_at->diffForHumans() }}</h5>
                         <div class="pc" >
                             <h5 class="@if ($popular->category==='tech')

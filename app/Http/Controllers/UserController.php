@@ -9,7 +9,7 @@ use  Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    //
+    //function to register new user
     public function register(Request $request){
         $request->validate([
             'username'=> 'required|unique:users|regex:/(^[a-zA-Z]*$)/|min:2|max:20',
@@ -31,6 +31,7 @@ class UserController extends Controller
         return redirect()->route('posts')->with('message','Hello there! you are now signed in');
     }
 
+    //function to login user
     public function login(Request $request){
         $request->validate([
             'email' => 'required',
@@ -46,7 +47,7 @@ class UserController extends Controller
         
     }
 
-
+//function to logout user
     public function logout(){
         auth()->logout();
         
