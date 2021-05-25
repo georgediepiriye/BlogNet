@@ -29,14 +29,14 @@ class PostController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'title'=>'required|max:60',
+            'title'=>'required|max:100',
             'body'=>'required',
             'category'=>'required |in:sports,fashion,tech,politics',
             'image' =>'required|mimes:png,jpg,jpeg|max:5048'
 
         ]);
-        $imageName = uniqid() . '-' . $request->title . '.' . $request->image->extension();
- 
+        
+        $imageName = time() . '-' . $request->username . '-' . $request->image->extension();
         $request->image->move(public_path('images'),$imageName);
        
        
@@ -48,7 +48,7 @@ class PostController extends Controller
             'image'=> $imageName
 
         ]);
-        return redirect(route('posts'));
+        return redirect(route('posts'))->with('message','Post has been posted successfully!');
 
 
 
@@ -64,10 +64,7 @@ class PostController extends Controller
             'user_id'=>$request->user()->id
 
         ]);
-
-         
-        return back();
-
+            return back();
     }
 
     

@@ -24,12 +24,11 @@ class UserController extends Controller
             'password' => Hash::make($request->password)
 
         ]);
-       Auth::attempt(['email' => $request->email, 'password' => $request->password]);
-    
-         $request->session()->put('user',$user);
+        
+     auth()->attempt($request->only('email','password'));
 
 
-        return redirect()->route('dashboard');
+        return redirect()->route('posts')->with('message','Hello there! you are now signed in');
     }
 
     public function login(Request $request){
@@ -39,19 +38,18 @@ class UserController extends Controller
 
         ]);
 
-        if(Auth::attempt($request->only('email','password'),$request->remember)){
-                $user = User::where(['email'=>$request->email])->first();
-                $request->session()->put('user',$user);
-                return redirect(route('posts'));
-            }else{
-                return redirect(route('login'))->with('error','Invalid login details');
-            }
+       if(!auth()->attempt($request->only('email','password'),$request->remember)){
+           return redirect(route('login'))->with('error','Invalid Login Details');
+       } ;
+        return redirect(route('posts'))->with('message','Hello there! you are now signed in');
+
         
     }
 
 
-    public function logout(Request $request){
-      $request->session()->forget('user');
+    public function logout(){
+        auth()->logout();
+        
         return redirect(route('posts'));
     }
 }

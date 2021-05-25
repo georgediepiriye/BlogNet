@@ -25,21 +25,24 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            @if (Session::has('user'))
-                  <li class="np"><a href="#"><span class="glyphicon "></span>{{ Str::ucfirst(Session::get('user')['username'])  }}</a></li>
+             @auth
+                  <li class="np"><a href="#"><span class="glyphicon "></span>{{ Str::ucfirst(auth()->user()->username)  }}</a></li>
                   <li class="np"><a href="{{ route('createpost') }}"><span class="glyphicon ">Create-Post</a></li>
                   <li class="np">
-                     <form action="{{ route('logout') }}" method="POST" class="inline">
+                  <form action="{{ route('logout') }}" method="POST" class="inline">
                          @csrf
                   
                         <button class="glyphicon btn logout-button" type="submit" name="submit">Logout</button>
                  
-                      </form>
+                  </form>
                   </li>
-            @else
+            @endauth     
+            @guest
+              
+           
             <li class="np"><a href="{{ route('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
             <li class="np"><a href="{{ route('register') }}"><span class="glyphicon glyphicon-register"></span> Register</a></li>
-            @endif
+            @endguest
             
           
         </ul>

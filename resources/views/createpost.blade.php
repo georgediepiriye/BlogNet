@@ -4,7 +4,7 @@
   
         <div class="col-sm-10 col-sm-offset-1">
 
-         <h2 class="create-posts-box">Create Post</h2>
+         <h2 class="create-posts-title">Create Post</h2>
           <div>
             <form action="{{ route('posts') }}" method="post" enctype="multipart/form-data">
                 @csrf
@@ -42,10 +42,10 @@
                         </div>
                         
                     @enderror
-                    <label class="btn image-button">
-                        <span>Select Image</span>
-                        <input type="file" name="image" class="hidden">
-                    </label><br>
+                         <br>
+                        <span>Select Image:</span><br>
+                        <input type="file" name="image"><br>
+                   
                     @error('image')
                         <div class="error-message">
                            <h5> {{ $message }}</h5>

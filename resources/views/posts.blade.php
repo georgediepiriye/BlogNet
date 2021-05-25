@@ -2,14 +2,23 @@
 @section('content')
 <div class="container">
     <div class="jumbotron">
+        @if (session()->has('message'))
+        <div style="color: green" class="jt np">
+          {{ session('message') }}
+        </div>
+            
+        @endif
         <h1 class="display-4 jt np">“There is no greater agony than bearing an untold story inside you.”</h1>
+     
         <p>~ Maya Angelou</p>
-        @if (!Session::has('user'))
+      @guest
+          
+     
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="{{ route('login') }}">Get Started</a>
         </p>
-            
-        @endif
+        @endguest      
+       
        
 
     </div>
