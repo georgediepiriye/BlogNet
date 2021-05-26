@@ -45,10 +45,10 @@
                             </div>
                             
                         @endif
-                        
-                      
-                        <span class="float-child likes-count">{{ $post->likes->count() }} {{ Str::plural('like',$post->likes->count() ) }}</span>
-                       
+                    @endauth
+                   
+                      <span class="float-child likes-count">{{ $post->likes->count() }} {{ Str::plural('like',$post->likes->count() ) }}</span>
+                      @auth   
                             @if (auth()->user()->id===$post->user_id)
                                     <div class="float-child">
                                     
